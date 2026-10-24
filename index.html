@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Feng Zhang, PhD, Postdoctoral Research Fellow at the University of Missouri-Columbia. Soft materials, wearable and implantable biosensors, wireless drug delivery, and closed-loop bioelectronics for precision healthcare.">
+<title>Feng Zhang, PhD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: institutional single page. Sticky top nav, two-column hero with portrait,
+   closed-loop figure band, research thrusts as figure + text rows, then publications and CV. */
+:root {
+  --bg: #ffffff;
+  --surface: #f5f6f8;
+  --ink: #14181f;
+  --muted: #59606d;
+  --rule: #e2e5ea;
+  --accent: #1c3f6e;        /* deep ink blue */
+  --accent-soft: #e7edf6;
+  --gold: #b88a1b;          /* Mizzou gold, used sparingly */
+  --tissue: #e9b8ae;
+  --tissue-deep: #c7756a;
+  --signal: #1f8a7a;
+  --drug: #6a4fb3;
+  --fig-bg: #fbfbfc;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --maxw: 1240px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1319; --surface: #161b23; --ink: #e8eaee; --muted: #9aa2b1; --rule: #262d38;
+    --accent: #8fb3e8; --accent-soft: #1a2638; --gold: #e0b54a;
+    --tissue: #6b3f3a; --tissue-deep: #d98f84; --signal: #4fc2ae; --drug: #a892e6; --fig-bg: #131820;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1319; --surface: #161b23; --ink: #e8eaee; --muted: #9aa2b1; --rule: #262d38;
+  --accent: #8fb3e8; --accent-soft: #1a2638; --gold: #e0b54a;
+  --tissue: #6b3f3a; --tissue-deep: #d98f84; --signal: #4fc2ae; --drug: #a892e6; --fig-bg: #131820;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--serif); text-wrap: balance; margin: 0; font-weight: 600; }
+h2 { font-size: 1.9rem; line-height: 1.2; }
+h3 { font-size: 1.2rem; line-height: 1.3; }
+p { margin: 0; }
+.eyebrow { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+/* nav */
+header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+header.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.brand { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+.brand span { color: var(--muted); font-weight: 400; }
+nav ul { list-style: none; display: flex; gap: 4px 20px; margin: 0; padding: 0; flex-wrap: wrap; }
+nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; }
+nav a { position: relative; padding-block: 4px; transition: color 0.15s ease; }
+nav a:hover, nav a.active { color: var(--accent); }
+nav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; border-radius: 2px; background: var(--gold); }
+
+/* hero */
+.hero { padding-block: 56px 40px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 64px; align-items: start; }
+.hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.1rem); line-height: 1.1; letter-spacing: -0.01em; }
+.hero .role { margin-top: 10px; color: var(--muted); font-size: 1.02rem; }
+.hero .role strong { color: var(--ink); font-weight: 500; }
+.hero .role { padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+.hero .lede { margin-top: 28px; font-family: var(--serif); font-size: clamp(1.35rem, 2.1vw, 1.6rem); line-height: 1.4; font-weight: 400; max-width: 34em; color: var(--ink); text-wrap: balance; }
+.hero .lede em { font-style: normal; color: var(--accent); }
+.hero .bio { margin-top: 20px; max-width: 70ch; display: grid; gap: 14px; font-size: 1.02rem; line-height: 1.7; color: var(--muted); }
+.hero .bio p:first-child { color: var(--ink); }
+.links { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--rule); border-radius: 999px; font-size: 0.88rem; font-weight: 500; text-decoration: none; color: var(--ink); background: var(--bg); }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn.primary:hover { color: var(--bg); opacity: 0.9; }
+.portrait { display: grid; gap: 14px; }
+.photo { display: block; width: 100%; height: auto; object-fit: cover; aspect-ratio: 1; max-width: 100%; border-radius: 4px; border: 1px solid var(--rule); }
+.photo-old { aspect-ratio: 4 / 5; max-width: 100%; border-radius: 4px; background: linear-gradient(160deg, var(--accent-soft), var(--surface)); display: grid; place-items: center; border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.photo .initials { font-family: var(--serif); font-size: 4rem; color: var(--accent); opacity: 0.55; }
+.photo .hint { position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; font-family: var(--mono); font-size: 0.68rem; color: var(--muted); }
+.facts { font-size: 0.85rem; color: var(--muted); display: grid; gap: 4px; }
+.facts b { color: var(--ink); font-weight: 500; font-family: var(--mono); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+.facts .row { display: flex; justify-content: space-between; border-bottom: 1px dotted var(--rule); padding-block: 4px; }
+
+/* interests strip */
+.interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.chip { font-size: 0.8rem; padding: 3px 10px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+
+/* closed-loop figure */
+.figband { background: var(--surface); border-block: 1px solid var(--rule); padding-block: 40px; }
+.figband .wrap { display: grid; gap: 18px; }
+figure { margin: 0; min-width: 0; }
+.fig-scroll { overflow-x: auto; }
+.figband { padding-block: 64px; }
+.vision { display: grid !important; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr); gap: 56px; align-items: center; }
+.vision-text { display: grid; gap: 16px; align-content: center; min-width: 0; }
+.vision-text h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.2; }
+.vision-text > p:not(.eyebrow):not(.vision-loop) { color: var(--muted); line-height: 1.7; }
+.vision-list { list-style: none; margin: 4px 0 0; padding: 0; display: grid; border-top: 1px solid var(--rule); }
+.vision-list li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--rule); font-size: 0.95rem; }
+.vk { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); padding-top: 3px; }
+.vision-loop { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-family: var(--serif); font-size: 1.1rem; color: var(--accent); margin-top: 4px; }
+.overview { min-width: 0; }
+.overview a { display: block; background: #ffffff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 2px rgba(20, 24, 31, 0.06), 0 12px 32px -8px rgba(20, 24, 31, 0.14); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.overview a:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(20, 24, 31, 0.08), 0 18px 40px -10px rgba(20, 24, 31, 0.2); }
+.overview img { display: block; width: 100%; height: auto; }
+@media (max-width: 900px) { .vision { grid-template-columns: minmax(0, 1fr); gap: 32px; } .overview a { padding: 10px; } }
+.fig-scroll svg { display: block; min-width: 680px; width: 100%; height: auto; }
+figcaption { font-size: 0.86rem; color: var(--muted); max-width: 80ch; }
+figcaption b { color: var(--ink); font-weight: 600; }
+
+/* sections */
+section.block { padding-block: 88px 24px; scroll-margin-top: 64px; }
+section.block h2 { font-size: clamp(1.8rem, 2.8vw, 2.25rem); }
+.section-head { display: grid; gap: 10px; margin-bottom: 40px; max-width: 70ch; }
+.section-head .eyebrow { color: var(--gold); }
+.section-head p { color: var(--muted); }
+
+/* research thrusts */
+.thrusts { display: grid; gap: 40px; }
+.thrust { display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 32px; align-items: start; padding-top: 32px; border-top: 1px solid var(--rule); }
+.thrust:first-child { border-top: 0; padding-top: 0; }
+.thrust .art { background: var(--fig-bg); border: 1px solid var(--rule); border-radius: 10px; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; box-shadow: 0 1px 2px rgba(20, 24, 31, 0.04), 0 10px 28px -12px rgba(20, 24, 31, 0.16); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.thrust:hover .art { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(20, 24, 31, 0.06), 0 18px 36px -14px rgba(20, 24, 31, 0.24); }
+.thrust h3 { font-size: 1.35rem; }
+.thrust .art svg { width: 100%; height: 100%; display: block; }
+.thrust .art.photo-art { aspect-ratio: auto; background: #ffffff; padding: 12px; }
+.thrust .art.photo-art img { display: block; width: 100%; height: auto; }
+.thrust .txt { display: grid; gap: 10px; min-width: 0; }
+.thrust .txt p { max-width: 75ch; }
+.thrust .tag { font-family: var(--mono); font-size: 0.72rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
+.keyrefs { font-size: 0.86rem; color: var(--muted); }
+.keyrefs i { color: var(--ink); }
+.foundation { margin-top: 40px; padding: 24px; background: var(--surface); border-radius: 4px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; align-items: center; }
+.foundation .art { aspect-ratio: 1; max-width: 100%; }
+
+/* publications */
+.pub-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; align-items: center; justify-content: space-between; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; gap: 2px; flex-wrap: wrap; }
+.seg button { border: 0; background: transparent; font: inherit; font-size: 0.85rem; padding: 5px 12px; border-radius: 999px; cursor: pointer; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+.metrics { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.metrics b { color: var(--ink); font-weight: 500; }
+ol.pubs { list-style: none; margin: 0; padding: 0; display: grid; }
+ol.pubs li { display: grid; grid-template-columns: 3.2rem 148px minmax(0, 1fr); gap: 16px; padding-block: 16px; border-top: 1px solid var(--rule); align-items: start; }
+.pthumb { display: block; background: #ffffff; border: 1px solid var(--rule); border-radius: 8px; padding: 6px; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+.pthumb:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgba(20, 24, 31, 0.28); }
+.pthumb:hover { border-color: var(--accent); }
+.pthumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pdoi { font-family: var(--mono); font-size: 0.75rem; margin-top: 4px; }
+ol.pubs li:last-child { border-bottom: 1px solid var(--rule); }
+.pyear { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--accent); padding-top: 0; font-variant-numeric: tabular-nums; }
+.pyear.rep { visibility: hidden; }
+ol.pubs li.newyear { border-top-color: var(--ink); }
+.ptitle { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; line-height: 1.35; color: var(--ink); }
+.pauth { font-size: 0.88rem; color: var(--muted); margin-top: 3px; }
+.pauth .me { color: var(--ink); font-weight: 600; }
+.pvenue { font-size: 0.88rem; margin-top: 2px; }
+.pvenue em { color: var(--accent); font-style: italic; }
+.badges { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-left: 6px; vertical-align: 1px; }
+.badge { font-family: var(--mono); font-size: 0.68rem; padding: 1px 7px; border-radius: 3px; border: 1px solid var(--gold); color: var(--gold); white-space: nowrap; }
+.badge.rev { border-color: var(--rule); color: var(--muted); }
+.pnote { font-size: 0.8rem; color: var(--muted); margin-top: 14px; }
+
+/* news */
+section.band { background: var(--surface); border-block: 1px solid var(--rule); padding-block: 72px; margin-top: 64px; }
+section.band + section.block { padding-top: 72px; }
+.news { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+.news-item { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 14px; padding-block: 12px; border-top: 1px solid var(--rule); }
+.news-item time { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); padding-top: 2px; font-variant-numeric: tabular-nums; position: relative; padding-left: 16px; white-space: nowrap; }
+.news-item time::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+.news-item p { font-size: 0.94rem; }
+
+/* talk photos */
+.talks { margin-top: 48px; display: grid; gap: 16px; }
+.talk-grid { display: grid; grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.8fr); gap: 16px; }
+.talk-grid.r2 { grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.21fr); }
+.talk { margin: 0; position: relative; border-radius: 10px; overflow: hidden; max-width: 100%; background: var(--rule); box-shadow: 0 10px 28px -14px rgba(20, 24, 31, 0.35); }
+.talk img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+.talk:hover img { transform: scale(1.03); }
+.talk figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 32px 16px 14px; display: grid; gap: 2px; color: #ffffff; background: linear-gradient(to top, rgba(10, 14, 20, 0.78), rgba(10, 14, 20, 0)); font-size: 0.85rem; }
+.talk figcaption b { font-weight: 600; color: #ffffff; }
+.talk figcaption span { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; opacity: 0.85; }
+@media (max-width: 820px) { .talk-grid, .talk-grid.r2 { grid-template-columns: minmax(0, 1fr); } }
+
+/* cv */
+.cv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 56px; }
+.cv-col { display: grid; gap: 36px; align-content: start; min-width: 0; }
+.cv-sec h3 { font-size: 1.05rem; padding-bottom: 8px; border-bottom: 2px solid var(--ink); margin-bottom: 4px; }
+.entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding-block: 10px; border-bottom: 1px solid var(--rule); }
+.entry .what { font-weight: 500; }
+.entry .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.entry .where { grid-column: 1 / -1; font-size: 0.88rem; color: var(--muted); }
+.plain { list-style: none; margin: 0; padding: 0; }
+.plain li { padding-block: 8px; border-bottom: 1px solid var(--rule); font-size: 0.93rem; }
+.plain li .sub { display: block; font-size: 0.85rem; color: var(--muted); }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.contact .card { padding: 24px; border: 1px solid var(--rule); border-radius: 10px; background: var(--bg); box-shadow: 0 8px 24px -16px rgba(20, 24, 31, 0.2); display: grid; gap: 6px; align-content: start; min-width: 0; }
+.contact .val { font-family: var(--mono); font-size: 0.9rem; overflow-wrap: anywhere; user-select: all; }
+.copy { justify-self: start; font: inherit; font-size: 0.8rem; padding: 3px 10px; border: 1px solid var(--rule); border-radius: 999px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.copy:hover { border-color: var(--accent); color: var(--accent); }
+
+footer { margin-top: 64px; border-top: 1px solid var(--rule); padding-block: 24px 40px; font-size: 0.82rem; color: var(--muted); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; align-items: center; }
+.totop { color: var(--muted); text-decoration: none; font-weight: 500; }
+.totop:hover { color: var(--accent); }
+
+/* svg palette classes */
+.s-ink { fill: var(--ink); } .s-muted { fill: var(--muted); }
+.s-tissue { fill: var(--tissue); } .s-tissue-d { fill: var(--tissue-deep); }
+.s-accent { fill: var(--accent); } .s-accent-soft { fill: var(--accent-soft); }
+.s-signal { fill: var(--signal); } .s-drug { fill: var(--drug); } .s-gold { fill: var(--gold); }
+.s-bg { fill: var(--bg); } .s-surface { fill: var(--surface); }
+.st-ink { stroke: var(--ink); } .st-muted { stroke: var(--muted); } .st-accent { stroke: var(--accent); }
+.st-signal { stroke: var(--signal); } .st-drug { stroke: var(--drug); } .st-gold { stroke: var(--gold); } .st-rule { stroke: var(--rule); } .st-tissue { stroke: var(--tissue-deep); }
+svg text { font-family: var(--sans); }
+.t-lab { font-size: 12px; fill: var(--ink); font-weight: 500; }
+.t-sm { font-size: 10.5px; fill: var(--muted); }
+.t-mono { font-family: var(--mono); font-size: 10px; fill: var(--muted); letter-spacing: 0.06em; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.pulse { animation: pulse 2.4s ease-in-out infinite; }
+@keyframes flow { to { stroke-dashoffset: -40; } }
+.flow { stroke-dasharray: 6 4; animation: flow 3s linear infinite; }
+
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .portrait { grid-template-columns: 140px minmax(0, 1fr); align-items: start; }
+  .thrust { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .thrust .art { max-width: 420px; }
+  .foundation { grid-template-columns: minmax(0, 1fr); }
+  .foundation .art { max-width: 200px; }
+  .news, .cv-grid { grid-template-columns: minmax(0, 1fr); }
+  .contact { grid-template-columns: minmax(0, 1fr); }
+  ol.pubs li { grid-template-columns: 96px minmax(0, 1fr); gap: 4px 14px; }
+  ol.pubs li .pyear { grid-column: 1 / -1; }
+  ol.pubs li .pyear.rep { display: none; }
+}
+@media (max-width: 480px) {
+  nav ul { gap: 2px 14px; }
+  .portrait { grid-template-columns: 110px minmax(0, 1fr); }
+  .photo .initials { font-size: 2.4rem; }
+  .photo .hint { display: none; }
+  h2 { font-size: 1.6rem; }
+}
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Feng Zhang<span>, PhD</span></a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Soft Materials &amp; Bioelectronics</p>
+        <h1 style="margin-top:10px">Feng Zhang, PhD</h1>
+        <p class="role"><strong>Postdoctoral Research Fellow</strong> · NextGen Precision Health Institute<br>Department of Chemical &amp; Biomedical Engineering, University of Missouri-Columbia</p>
+        <p class="lede">I build <em>soft, tissue-integrated bioelectronic systems</em> that sense the state of living tissue and deliver therapy in response.</p>
+        <div class="bio">
+          <p>My research brings together soft and porous biomaterials, wearable and implantable biosensors, and wireless drug delivery devices. The goal is closed-loop bioelectronics that sit seamlessly on or inside the body, read biochemical and physiological signals continuously, and act on them with programmable drug release and electrical stimulation, toward precision healthcare for chronic disease management and tissue regeneration.</p>
+          <p>I work with Prof. Zheng Yan in the Soft Materials and Bio-Electronics Lab at Mizzou. I received my PhD in Fiber Materials Science from Donghua University with Prof. Bin Ding, where I engineered nanoporous fibers and fibrous aerogels for molecular separation and nanofluidic ion transport. That background in pore architecture and transport is the materials foundation of my current work.</p>
+        </div>
+        <div class="interests" aria-label="Research interests">
+          <span class="chip">Soft biomaterials</span>
+          <span class="chip">Wearable biosensors</span>
+          <span class="chip">Implantable bioelectronics</span>
+          <span class="chip">Wireless drug delivery</span>
+          <span class="chip">Closed-loop therapeutics</span>
+          <span class="chip">Tissue regeneration</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="#cv">Curriculum vitae</a>
+          <a class="btn" href="https://bit.ly/3Y0aVgF" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="btn" href="https://orcid.org/0009-0003-9721-694X" target="_blank" rel="noopener">ORCID</a>
+          <a class="btn" href="#contact">Email</a>
+        </div>
+      </div>
+      <aside class="portrait">
+        <img class="photo" src="img/photo.jpg" alt="Portrait of Feng Zhang" width="800" height="800">
+        <div class="facts">
+          <div class="row"><span>Publications</span><b>17</b></div>
+          <div class="row"><span>Citations</span><b>880+</b></div>
+          <div class="row"><span>h-index</span><b>14</b></div>
+          <div class="row"><span>Invited talks</span><b>6</b></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Closed-loop concept figure -->
+  <div class="figband">
+    <div class="wrap vision">
+      <div class="vision-text">
+        <p class="eyebrow">Research vision</p>
+        <h2>Soft materials and bioelectronics for precision healthcare</h2>
+        <p>Soft devices that live on and inside the body, read physiological and biochemical signals, and connect wirelessly to a phone and the cloud. The same platforms close the loop with targeted therapy.</p>
+        <ul class="vision-list">
+          <li><span class="vk">Wearable</span><span>Continuous, noninvasive health monitoring</span></li>
+          <li><span class="vk">Implantable</span><span>Tissue-integrated sensing and stimulation</span></li>
+          <li><span class="vk">Therapeutic</span><span>Targeted, on-demand drug delivery</span></li>
+        </ul>
+        <p class="vision-loop"><span>Sense</span><span aria-hidden="true">→</span><span>Act</span><span aria-hidden="true">→</span><span>Treat</span></p>
+      </div>
+      <figure class="overview">
+        <a href="img/overview.jpg" target="_blank" rel="noopener" aria-label="Open full-size research overview"><img src="img/overview.jpg" alt="Research overview: soft materials and bioelectronics for precision healthcare, showing wearable, implantable and therapeutic devices linked to a smartphone and the cloud" width="1800" height="1231"></a>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Research -->
+  <section class="block" id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Research</p>
+        <h2>Bioelectronics that integrate with tissue, read it, and respond</h2>
+        <p>Four connected directions, from the materials that touch tissue to complete sensing–therapy systems.</p>
+      </div>
+
+      <div class="thrusts">
+        <article class="thrust">
+          <div class="art photo-art"><img src="img/softmat.jpg" alt="Ultrathin, skin-conformal soft bioelectronic patch with serpentine interconnects, stretching and wrinkling with the skin" width="1131" height="632"></div>
+          <div class="txt">
+            <p class="tag">Soft materials</p>
+            <h3>Soft and porous biomaterials for seamless bio-interfaces</h3>
+            <p>Tissue is soft, wet, and constantly moving, and conventional electronics are none of these. I design porous fibrous and nanofibril materials with built-in multifunctionality: they are permeable to sweat, exudate, and gas, mechanically compliant with skin and soft tissue, and able to carry sensing and therapeutic components. Current work addresses strain-resilient interfaces and selectively damping materials that suppress motion artifacts in skin-interfaced devices.</p>
+            <p class="keyrefs">Key work: <i>Materials Today</i> 2025 (highlighted) · <i>Advanced Materials</i> 2024 · <i>Materials Horizons</i> 2025</p>
+          </div>
+        </article>
+
+        <article class="thrust">
+          <div class="art photo-art"><img src="img/biosensing.jpg?v=2" alt="Skin-interfaced wearable biosensors on the forearm and hand, and a tissue-integrated implantable biosensor wrapped on the intestine" width="1200" height="1238"></div>
+          <div class="txt">
+            <p class="tag">Biosensing</p>
+            <h3>Wearable and implantable biosensors</h3>
+            <p>Diseased and healing tissues change their chemistry long before they change their appearance. I develop soft, wireless biosensors that track multiple biomarkers at once, including pH, temperature, and metabolites, directly at the tissue surface. This includes electrochemically active sensing materials and paper-based microfluidics that sample and route biofluids through the device with no pumps.</p>
+            <p class="keyrefs">Key work: <i>Device</i> 2025 (invited review) · <i>Lab on a Chip</i> 2026 (invited review)</p>
+          </div>
+        </article>
+
+        <article class="thrust">
+          <div class="art">
+            <svg viewBox="0 0 320 240" role="img" aria-label="Implantable wireless drug delivery device releasing drug into tissue">
+              <rect x="0" y="120" width="320" height="120" class="s-tissue" opacity="0.5"/>
+              <path d="M0 120 Q 80 110 160 120 T 320 120 V 130 H 0 Z" class="s-tissue-d" opacity="0.4"/>
+              <!-- device -->
+              <rect x="70" y="58" width="180" height="46" rx="10" class="s-bg st-drug" stroke-width="1.6"/>
+              <g>
+                <rect x="88" y="70" width="34" height="22" rx="4" class="s-drug" opacity="0.25"/>
+                <rect x="143" y="70" width="34" height="22" rx="4" class="s-drug" opacity="0.55"/>
+                <rect x="198" y="70" width="34" height="22" rx="4" class="s-drug" opacity="0.9"/>
+              </g>
+              <text x="160" y="50" text-anchor="middle" class="t-sm">programmable reservoirs</text>
+              <!-- microneedles -->
+              <g class="s-drug" opacity="0.85">
+                <polygon points="90,104 98,140 106,104"/><polygon points="122,104 130,146 138,104"/><polygon points="154,104 162,150 170,104"/><polygon points="186,104 194,146 202,104"/><polygon points="218,104 226,140 234,104"/>
+              </g>
+              <!-- released drug -->
+              <g class="s-drug">
+                <circle cx="130" cy="168" r="3" class="pulse"/><circle cx="162" cy="178" r="3.5" class="pulse" style="animation-delay:.5s"/><circle cx="194" cy="166" r="3" class="pulse" style="animation-delay:1s"/>
+                <circle cx="146" cy="196" r="2.5" class="pulse" style="animation-delay:1.4s"/><circle cx="180" cy="200" r="2.5" class="pulse" style="animation-delay:1.8s"/>
+              </g>
+              <!-- e-stim field -->
+              <g fill="none" class="st-gold" stroke-width="1.2" opacity="0.8">
+                <path d="M60 150 C 110 200, 210 200, 260 150"/><path d="M50 160 C 110 225, 210 225, 270 160"/>
+              </g>
+              <!-- RF -->
+              <g fill="none" class="st-muted" stroke-width="1.4">
+                <path d="M270 40 a 14 14 0 0 1 20 0" class="pulse"/><path d="M262 32 a 24 24 0 0 1 36 0" class="pulse" style="animation-delay:.5s"/>
+              </g>
+              <text x="12" y="228" class="t-mono">ON-DEMAND · WIRELESS · MINIMALLY INVASIVE</text>
+            </svg>
+          </div>
+          <div class="txt">
+            <p class="tag">Therapeutics</p>
+            <h3>Wireless, programmable drug delivery devices</h3>
+            <p>Many therapies work best when the right dose reaches the right tissue at the right time. I engineer soft wearable and implantable platforms that release drugs on command, combining microneedles, porous drug carriers, and wirelessly powered actuation with electrical stimulation. These platforms target chronic disease management and tissue regeneration, in collaboration with Texas A&amp;M College of Dentistry and the University of Nebraska Medical Center.</p>
+            <p class="keyrefs">Key work: <i>npj Soft Matter</i> 2026 (invited review) · <i>Advanced Functional Materials</i> 2025 · <i>Nano-Micro Letters</i> 2026</p>
+          </div>
+        </article>
+
+        <article class="thrust">
+          <div class="art photo-art"><img src="img/closedloop.jpg" alt="Closed-loop soft bioelectronic systems: wearable and implantable devices sense electrical, chemical and mechanical signals, AI-based on-board computing analyzes the data, and the system delivers electrical, chemical or optical intervention" width="1200" height="952"></div>
+          <div class="txt">
+            <p class="tag">Systems</p>
+            <h3>Closed-loop, tissue-integrated bioelectronics for precision healthcare</h3>
+            <p>The long-term aim is to connect the first three directions into autonomous systems. Tissue-state feedback from integrated sensors drives targeted intervention, such as on-demand drug release or electrical stimulation when biomarkers signal a change, and the device keeps adjusting as the tissue heals. This system-level work spans materials, soft RF antennas and circuits, device design, and biological evaluation, with collaborators at UIC and Washington University in St. Louis.</p>
+            <p class="keyrefs">Recent talk: Invited seminar, Saint Louis University Biomedical Engineering, 2025</p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="block" id="publications">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Publications</p>
+        <h2>Publications</h2>
+        <p>† equal contribution · * corresponding author. Full list on <a href="https://bit.ly/3Y0aVgF" target="_blank" rel="noopener">Google Scholar</a>.</p>
+      </div>
+      <div class="pub-tools">
+        <p class="metrics"><b>17</b> published · <b>880+</b> citations · h-index <b>14</b></p>
+      </div>
+      <ol class="pubs" id="pubs"></ol>
+      
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="block band" id="news">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">News &amp; talks</p>
+        <h2>Recent highlights</h2>
+      </div>
+      <div class="news">
+        <div class="news-item"><time>Aug 2026</time><p>Appointed Guest Editor of the <i>Biosensors</i> special issue <a href="https://www.mdpi.com/journal/biosensors/special_issues/9H39256L6G" target="_blank" rel="noopener">“Advances in Flexible and Stretchable Biosensors”</a>.</p></div>
+        <div class="news-item"><time>Jul 2026</time><p>Selected as a mentee for the Future Faculty Workshop 2026 at Florida State University.</p></div>
+        <div class="news-item"><time>2026</time><p>Invited review on soft bioelectronics for wireless drug delivery published in <i>npj Soft Matter</i>.</p></div>
+        <div class="news-item"><time>2026</time><p>Invited review on paper-based microfluidics for wearable soft bioelectronics published in <i>Lab on a Chip</i>, collected in Lab on a Chip Review Articles 2026.</p></div>
+        <div class="news-item"><time>2026</time><p>Invited talk at the MRS Spring Meeting, Hawaii, on the bioinspired meta-aerogel ion motor.</p></div>
+        <div class="news-item"><time>2026</time><p>Presentation at the BMES Annual Meeting on sustainable nanofibril interfaces for porous bioelectronics.</p></div>
+        <div class="news-item"><time>2025</time><p>Received the Outstanding Doctoral Dissertation Award, Donghua University.</p></div>
+        <div class="news-item"><time>2025</time><p>Invited seminar at Saint Louis University Biomedical Engineering on wireless wearable bioelectronic systems.</p></div>
+        <div class="news-item"><time>2025</time><p>“Multifunctional Porous Soft Bioelectronics” published in <i>Materials Today</i> as a highlighted paper.</p></div>
+        <div class="news-item"><time>2023</time><p>Joined Prof. Zheng Yan's lab at the University of Missouri-Columbia as a Postdoctoral Research Fellow.</p></div>
+      </div>
+      <div class="talks">
+        <p class="eyebrow talks-label">Selected talks</p>
+        <div class="talk-grid">
+          <figure class="talk tall"><img src="img/talk_mrs26.jpg" width="1058" height="1100" alt="Feng Zhang with Prof. John Rogers at the 2026 MRS Spring Meeting in Hawaii" ><figcaption><b>MRS Spring Meeting, with Prof. John Rogers</b><span>Hawaii · 2026</span></figcaption></figure>
+          <figure class="talk"><img src="img/talk_slu25.jpg" width="1400" height="778" alt="Feng Zhang giving an invited seminar at Saint Louis University Biomedical Engineering" ><figcaption><b>Biomedical Engineering Seminar</b><span>Saint Louis University · 2025</span></figcaption></figure>
+        </div>
+        <div class="talk-grid r2">
+          <figure class="talk"><img src="img/talk_fs19.jpg" width="1400" height="776" alt="Feng Zhang presenting at The Fiber Society Fall Conference, UT Austin" ><figcaption><b>The Fiber Society Fall Conference</b><span>UT Austin · 2019</span></figcaption></figure>
+          <figure class="talk"><img src="img/talk_ichm18.jpg" width="1200" height="992" alt="Feng Zhang presenting at the International Conference on Hybrid Materials, South Korea" ><figcaption><b>Int. Conference on Hybrid Materials</b><span>South Korea · 2018</span></figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section class="block" id="cv">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Curriculum vitae</p>
+        <h2>Training, service, and recognition</h2>
+      </div>
+      <div class="cv-grid">
+        <div class="cv-col">
+          <div class="cv-sec">
+            <h3>Education &amp; training</h3>
+            <div class="entry"><span class="what">Postdoctoral Research Fellow</span><span class="when">2023 – present</span><span class="where">University of Missouri-Columbia<br>NextGen Precision Health Institute<br>Advisor: Prof. Zheng Yan<br>Research: Soft biomaterials and bioelectronics</span></div>
+            <div class="entry"><span class="what">Ph.D., Fiber Materials Science <span class="badge" style="margin-left:4px;vertical-align:2px">Subject ranked 1st in China</span></span><span class="when">2018 – 2023</span><span class="where">Donghua University, Shanghai, China<br>Direct-entry PhD Program<br>Advisor: Prof. Bin Ding<br>Research: Functional nanofiber materials</span></div>
+          </div>
+          <div class="cv-sec">
+            <h3>Research collaborations</h3>
+            <ul class="plain">
+              <li>Texas A&amp;M University College of Dentistry, Prof. Xiaohua Liu<span class="sub">Implantable soft bioelectronics for wireless drug delivery · 2024 – present</span></li>
+              <li>University of Nebraska Medical Center, Prof. Jingwei Xie<span class="sub">Soft integrated biomaterials and bioelectronics for tissue regeneration · 2023 – present</span></li>
+              <li>University of Illinois Chicago, Prof. Pai-Yen Chen<span class="sub">Soft RF antennas and circuits · 2024 – present</span></li>
+              <li>Washington University in St. Louis, Prof. Jianjun Guan<span class="sub">Bioresorbable electronics and biomaterials for tissue regeneration · 2024 – 2025</span></li>
+            </ul>
+          </div>
+          <div class="cv-sec">
+            <h3>Mentoring &amp; teaching</h3>
+            <ul class="plain">
+              <li>NSF REU program co-mentor, University of Missouri-Columbia<span class="sub">Summers 2024 and 2025</span></li>
+              <li>Undergraduate researchers mentored<span class="sub">Brett Travis, Zach Alexander (Mizzou Honors College), Campbell Breiler (MU BME); Zachary Coughenour (University of Kansas); Kaspian L. Hayes (Georgia Tech)</span></li>
+              <li>Teaching Assistant, Functional Nanofiber Materials<span class="sub">Donghua University · Spring 2019</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cv-col">
+          <div class="cv-sec">
+            <h3>Awards &amp; honors</h3>
+            <ul class="plain">
+              <li>Outstanding Doctoral Dissertation Award, Donghua University<span class="sub">2025 · University-wide honor; about 15 dissertations selected each year across all disciplines</span></li>
+              <li>Hengyi Foundation Outstanding Academic Paper Award, China Chemical Fibers Association<span class="sub">2022 · One of 10 recipients nationwide from 500+ applicants</span></li>
+              <li>First Prize for Oral Presentation, 1st International Conference on Advanced Textile Science and Technology &amp; World Textile University Alliance Annual Meeting<span class="sub">2022</span></li>
+              <li>Ph.D. Student Innovation Funding Award, Donghua University<span class="sub">2020</span></li>
+              <li>Outstanding Graduate Student Award, Donghua University<span class="sub">2019</span></li>
+              <li>Graduate First Prize Scholarship, Donghua University<span class="sub">2019</span></li>
+            </ul>
+          </div>
+          <div class="cv-sec">
+            <h3>Professional service</h3>
+            <ul class="plain">
+              <li>Guest Editor, <i>Biosensors</i> special issue <a href="https://www.mdpi.com/journal/biosensors/special_issues/9H39256L6G" target="_blank" rel="noopener">“Advances in Flexible and Stretchable Biosensors”</a><span class="sub">2026 – present</span></li>
+              <li>Selected Mentee, Future Faculty Workshop, Florida State University<span class="sub">2026</span></li>
+              <li>Reviewer<span class="sub"><i>Nature Communications</i>, <i>ACS Applied Polymer Materials</i>, <i>ACS Applied Electronic Materials</i>, <i>ACS Omega</i>, <i>Journal of the Textile Institute</i>, and others</span></li>
+            </ul>
+          </div>
+          <div class="cv-sec">
+            <h3>Invited talks</h3>
+            <ul class="plain">
+              <li>MRS Spring Meeting, Hawaii<span class="sub">“Bioinspired Meta-Aerogel Ion Motor for Nanofluid Osmotic Energy Harvesting” · 2026</span></li>
+              <li>Saint Louis University, Biomedical Engineering Seminar<span class="sub">Invited seminar · 2025</span></li>
+              <li>1st Int. Conf. on Advanced Textile Science and Technology &amp; WTUA Annual Meeting, Shanghai<span class="sub">“Nanoporous Engineered Sponge Fiber Molecular Sieves” · 2023</span></li>
+              <li>The Fiber Society Fall Conference, UT Austin (two talks)<span class="sub">Superwettable fibrous membranes for oily wastewater purification and oil-in-water emulsion separation · 2019</span></li>
+              <li>International Conference on Hybrid Materials, South Korea<span class="sub">“Biomimetic Nanofiber Materials for Efficient Separation of Water-in-Oil Emulsions” · 2018</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2>Get in touch</h2>
+        <p>I welcome conversations about collaboration, seminars, and opportunities in soft bioelectronics.</p>
+      </div>
+      <div class="contact">
+        <div class="card">
+          <p class="eyebrow">Email</p>
+          <p class="val" id="email">fengzhang@missouri.edu</p>
+          <button class="copy" type="button" id="copy-email" data-target="email">Copy address</button>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Office</p>
+          <p>NextGen Precision Health Institute<br>University of Missouri-Columbia<br>Columbia, MO, USA</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Profiles</p>
+          <p><a href="https://bit.ly/3Y0aVgF" target="_blank" rel="noopener">Google Scholar</a></p>
+          <p><a href="https://orcid.org/0009-0003-9721-694X" target="_blank" rel="noopener">ORCID 0009-0003-9721-694X</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Feng Zhang · University of Missouri-Columbia</span>
+    <span>Research figures are schematic illustrations; publication thumbnails are adapted from the cited articles.</span>
+    <a href="#top" class="totop">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // f: first/co-first author; t: topic (bio = bioelectronics, por = porous/separation/energy)
+  var pubs = [
+    { y: 2026, a: "Zhang, F.; Sun, F.; Yan, Z.*", t: "Soft bioelectronics for wireless drug delivery: programmable, minimally invasive and closed-loop therapeutics", v: "npj Soft Matter", d: "2, 29", b: ["Invited review"], f: 1, im: "npj26", doi: "10.1038/s44431-026-00041-w", tp: "bio" },
+    { y: 2026, a: "Zhang, F.; Zhao, G.; Ouyang, Q.; Chen, S.; Yan, Z.*", t: "Paper-based Microfluidics for Wearable Soft Bioelectronics", v: "Lab on a Chip", d: "DOI: 10.1039/D5LC00754B", b: ["Invited review", "Lab on a Chip Review Articles 2026"], f: 1, im: "lc26", doi: "10.1039/d5lc00754b", tp: "bio" },
+    { y: 2026, a: "Chen, S.; Ouyang, Q.; Miao, X.; Zhang, F.; Chen, Z.; Qian, X.; Xie, J.; Yan, Z.*", t: "Wearable Ultrasound Devices for Therapeutic Applications", v: "Nano-Micro Letters", d: "18, 45", b: [], f: 0, im: "nml26", doi: "10.1007/s40820-025-01890-2", tp: "bio" },
+    { y: 2025, a: "Zhang, F.†; Xu, Y.†; Zhao, G.; Chen, Z.; Li, C.; Yan, Z.*", t: "Multifunctional Porous Soft Bioelectronics", v: "Materials Today", d: "82, 123–138", b: ["Highlighted paper"], f: 1, im: "mt25", doi: "10.1016/j.mattod.2024.11.011", tp: "bio" },
+    { y: 2025, a: "Ren, Y.†; Zhang, F.†; Yan, Z.; Chen, P.*", t: "Wearable bioelectronics based on emerging nanomaterials for telehealth applications", v: "Device (Cell Press)", d: "3(1), 100676", b: ["Invited review"], f: 1, im: "dev25", doi: "10.1016/j.device.2024.100676", tp: "bio" },
+    { y: 2025, a: "Chen, Z.†; Zhang, F.†; Qian, X.; Zhao, G.; Yan, Z.*", t: "Selectively damping materials for next-generation motion-artifact-free skin-interfaced soft bioelectronics", v: "Materials Horizons", d: "12, 7894", b: ["Invited review"], f: 1, im: "mh25", doi: "10.1039/d5mh00700c", tp: "bio" },
+    { y: 2025, a: "Andrabi, S. M.; Shahriar, S. S.; Tian, Y.; Hayati, F.; Su, Y.; Zhang, F.; Sharma, N. S.; Wang, G.; Wong, S. L.; Yan, Z.; Huang, G.; Xie, J. W.*", t: "Engineered Peptides-Based Hybrid-Nested Microneedle Effectively Treat Biofilm-Infected Diabetic Wounds", v: "Advanced Functional Materials", d: "35, 2422150", b: ["ESI Hot Article"], f: 0, im: "afm25", doi: "10.1002/adfm.202422150", tp: "bio" },
+    { y: 2025, a: "Qian, X.; Chen, Z.; Zhang, F.; Yan, Z.*", t: "Electrochemically Active Materials for Tissue-Interfaced Soft Biochemical Sensing", v: "ACS Sensors", d: "10(5), 3274–3301", b: [], f: 0, im: "acss25", doi: "10.1021/acssensors.5c00029", tp: "bio" },
+    { y: 2024, a: "Zhao, G.; Chen, Z.; Wang, S.; Chen, S.; Zhang, F.; Andrabi, S.; Xu, Y.; Ouyang, Q.; Rosas, M.; Qian, X.; Xie, J.; Yan, Z.*", t: "Sustainable Nanofibril Interfaces for Strain-Resilient and Multimodal Porous Bioelectronics", v: "Advanced Materials", d: "36(46), 2411587", b: [], f: 0, im: "am24", doi: "10.1002/adma.202411587", tp: "bio" },
+    { y: 2023, a: "Zhang, F.; Yu, J.; Si, Y.*; Ding, B.*", t: "Meta-Aerogel Ion Motor for Nanofluid Osmotic Energy Harvesting", v: "Advanced Materials", d: "35, 2302511", b: ["Editor's Choice"], f: 1, im: "am23", doi: "10.1002/adma.202302511", tp: "por" },
+    { y: 2023, a: "Zhang, F.; Si, Y.; Yu, J.; Ding, B.*", t: "Electrospun porous engineered nanofiber materials: A versatile medium for energy and environmental applications", v: "Chemical Engineering Journal", d: "456, 140989", b: ["ESI Highly Cited"], f: 1, im: "cej23", doi: "10.1016/j.cej.2022.140989", tp: "por" },
+    { y: 2022, a: "Zhang, F.; Si, Y.; Yu, J.; Ding, B.*", t: "Sub-Nanoporous Engineered Fibrous Aerogel Molecular Sieves with Nanogating Channels for Reversible Molecular Separation", v: "Small", d: "18, 2202173", b: [], f: 1, im: "sm22", doi: "10.1002/smll.202202173", tp: "por" },
+    { y: 2021, a: "Zhang, F.; Jiao, W.; Si, Y.; Yu, J.; Zhang, P.; Ding, B.*", t: "Tailoring nanoporous-engineered sponge fiber molecular sieves with ternary-nested architecture for precise molecular separation", v: "ACS Nano", d: "15, 13623", b: [], f: 1, im: "nano21", doi: "10.1021/acsnano.1c04575", tp: "por" },
+    { y: 2021, a: "Yan, Z.; Zhang, F.; Liu, X.; Liu, L.; Si, Y.*; Yu, J.; Zhang, P.; Ding, B.*", t: "Molecular cage-mediated radial gradient porous sponge nanofiber for selective adsorption of a mustard gas simulant", v: "ACS Applied Materials & Interfaces", d: "13(40), 47835–47844", b: [], f: 0, im: "ami21", doi: "10.1021/acsami.1c09849", tp: "por" },
+    { y: 2019, a: "Zhang, J.; Zhang, F.; Song, J.; Liu, L.; Si, Y.*; Yu, J.; Ding, B.*", t: "Electrospun flexible nanofibrous membranes for oil/water separation", v: "Journal of Materials Chemistry A", d: "7(35), 20075–20102", b: ["ESI Highly Cited"], f: 0, im: "jmca19", doi: "10.1039/c9ta07296a", tp: "por" },
+    { y: 2019, a: "Zhang, J.; Ge, J.; Si, Y.; Zhang, F.; Yu, J.; Liu, L.; Ding, B.*", t: "Taro leaf-inspired and superwettable nanonet-covered nanofibrous membranes for high-efficiency oil purification", v: "Nanoscale Horizons", d: "4(5), 1174–1184", b: [], f: 0, im: "nh19", doi: "10.1039/c9nh00166b", tp: "por" }
+  ];
+  var list = document.getElementById("pubs");
+  function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+  function render(filter) {
+    var items = pubs.filter(function (p) {
+      if (p.hide) return false;
+      if (filter === "first") return p.f;
+      if (filter === "bio" || filter === "por") return p.tp === filter;
+      return true;
+    });
+    var lastY = null;
+    list.innerHTML = items.map(function (p) {
+      var auth = esc(p.a).replace(/Zhang, F\.(†)?(\*)?/, function (m) { return '<span class="me">' + m + "</span>"; });
+      var badges = p.b.map(function (x) { return '<span class="badge' + (/review/i.test(x) ? " rev" : "") + '">' + esc(x) + "</span>"; }).join("");
+      var url = "https://doi.org/" + p.doi;
+      var first = p.y !== lastY; lastY = p.y;
+      return '<li' + (first ? ' class="newyear"' : '') + '><span class="pyear' + (first ? '' : ' rep') + '">' + p.y + '</span><a class="pthumb" href="' + url + '" target="_blank" rel="noopener" aria-label="Open article"><img src="img/t_' + p.im + '.jpg" alt="" loading="lazy"></a><div><div class="ptitle">' + esc(p.t) +
+        (badges ? '<span class="badges">' + badges + "</span>" : "") + '</div><div class="pauth">' + auth +
+        '</div><div class="pvenue"><em>' + esc(p.v) + "</em>, " + esc(p.d) + '</div><div class="pdoi"><a href="' + url + '" target="_blank" rel="noopener">doi:' + esc(p.doi) + "</a></div></div></li>";
+    }).join("");
+  }
+  render("all");
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a[href^="#"]'));
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id); });
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    navLinks.forEach(function (a) { var t = document.querySelector(a.getAttribute("href")); if (t) io.observe(t); });
+  }
+
+  document.getElementById("copy-email").addEventListener("click", function (e) {
+    var btn = e.currentTarget, el = document.getElementById("email");
+    function selectIt() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press Ctrl/⌘+C"; }
+    try {
+      navigator.clipboard.writeText(el.textContent).then(function () { btn.textContent = "Copied"; }, selectIt);
+    } catch (err) { selectIt(); }
+  });
+})();
+</script>
+</body>
+</html>
